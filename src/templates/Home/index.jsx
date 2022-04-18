@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import './styles.css';
+import './style.css';
 
 import { Posts } from '../../components/Posts';
 import { loadPosts } from '../../utils/load-posts';

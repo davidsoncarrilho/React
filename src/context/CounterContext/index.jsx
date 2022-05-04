@@ -1,5 +1,5 @@
 import P from 'prop-types';
-import { createContext, useContext, useReducer, useRef, useState } from 'react';
+import { createContext, useContext, useReducer, useRef } from 'react';
 import { buildActions } from './build-actions';
 import { reducer } from './reducer.';
 
@@ -12,7 +12,7 @@ const Context = createContext();
 
 export const CounterContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const actions = useRef(buildActions(dispatch));
+  const actions = useRef(buildActions(dispatch)); //Não muda durante as redenrizações, portanto não entra no looping
 
   return (
     <Context.Provider value={[state, actions.current]}>
